@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
 
@@ -11,3 +11,8 @@ def post_list(request):
     # 'blog/post_list.html' - this is our template file to renter
     # {} is a dictionary of parameters to use in the template
     return render(request, 'blog/post_list.html', {'posts':posts})
+
+# this variable pk is passed to us from urls.py from <int:pk>
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
