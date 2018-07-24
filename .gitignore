@@ -6,4 +6,6 @@ db.sqlite3
 /static
 .DS_Store
 README.txt
+.README.txt.swp
 pst.py
+*.swp
